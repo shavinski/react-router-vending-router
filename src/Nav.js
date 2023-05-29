@@ -1,18 +1,40 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
-function ListSnacks() {
-    const location = useLocation();
-    console.warn(location)
-    const searchParams = new URLSearchParams(location.search);
-    const name = searchParams.get('name');
+function ListSnacks({ handleClick }) {
+  
+  let activeStyle = {
+    fontWeight: "900",
+    color: "red"
+  }
 
 
   return (
     <nav>
-      <NavLink to="/kitkat">Kit Kat</NavLink>
-      <NavLink to="/snickers">Snickers</NavLink>
-      <NavLink to="/layschips">Lays Chips</NavLink>
+      <NavLink
+        to="/kitkat"
+        onClick={handleClick}
+        style={({ isActive }) =>
+          isActive ? activeStyle : undefined
+        }>
+        Kit Kat
+      </NavLink>
+      <NavLink
+        to="/snickers"
+        onClick={handleClick}
+        style={({ isActive }) =>
+          isActive ? activeStyle : undefined
+        }>
+        Snickers
+      </NavLink>
+      <NavLink
+        to="/layschips"
+        onClick={handleClick}
+        style={({ isActive }) =>
+          isActive ? activeStyle : undefined
+        }>
+        Lays Chips
+      </NavLink>
     </nav>
   );
 }

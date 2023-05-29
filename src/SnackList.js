@@ -10,31 +10,18 @@ import { Link } from "react-router-dom";
  * PARENT -> SnackList -> {CHILDREN}
  */
 
-function SnackList() {
-  const [isClicked, setIsClicked] = useState(false);
-
-  // useEffect(() => {
-
-  // }, [])
-  function handleClick() {
-    setIsClicked(!isClicked);
-  }
-
+function SnackList({ handleClick }) {
   return (
     <div>
-      {!isClicked && (
-        <div>
-          <Link onClick={handleClick} to="/kitkat">
-            Kit Kat
-          </Link>
-          <Link onClick={handleClick} to="/snickers">
-            Snickers
-          </Link>
-          <Link onClick={handleClick} to="/layschips">
-            Lays Chips
-          </Link>
-        </div>
-      )}
+      <Link onClick={handleClick} to="/kitkat">
+        Kit Kat
+      </Link>
+      <Link onClick={handleClick} to="/snickers">
+        Snickers
+      </Link>
+      <Link onClick={handleClick} to="/layschips">
+        Lays Chips
+      </Link>
     </div>
   );
 }
