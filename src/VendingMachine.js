@@ -2,21 +2,17 @@ import React, { useState } from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Snack from "./Snack";
 import Nav from "./Nav";
+import SnackList from "./SnackList";
 
 function VendingMachine() {
-  const [currentSnack, setCurrentSnack] = useState(null);
-
-  function updateCurrentSnack(string) {
-    setCurrentSnack(string);
-  }
-
   return (
     <div>
       <BrowserRouter>
-        <Nav currentSnack={currentSnack} />
+        <Nav />
         <Routes>
-          <Route path="/:name" element={<Snack updateSnack={updateCurrentSnack} />} />
+          <Route path="/:name" element={<Snack />} />
         </Routes>
+        <SnackList />
       </BrowserRouter>
     </div>
   );
